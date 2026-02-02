@@ -1,0 +1,41 @@
+# Azure Container Registry - Configuration
+# Copy to terraform.tfvars and fill in your values
+
+# ============================================================================
+# SERVICE PRINCIPAL CREDENTIALS (from create-sp.sh output)
+# ============================================================================
+client_id       = ""
+client_secret   = ""
+tenant_id       = ""
+subscription_id = ""
+
+# ============================================================================
+# REGISTRY SETTINGS
+# ============================================================================
+registry_name       = "mycompanyacr"  # Globally unique, alphanumeric only
+resource_group_name = "acr-demo-rg"
+location            = "centralus"
+sku                 = "Basic"
+admin_enabled       = true
+
+# ============================================================================
+# OPTIONAL (defaults usually fine for demos)
+# ============================================================================
+create_resource_group         = true
+public_network_access_enabled = true
+allowed_ip_ranges             = []
+enable_zone_redundancy        = false
+enable_retention_policy       = false
+retention_days                = 7
+enable_quarantine_policy      = false
+enable_trust_policy           = false
+enable_export_policy          = true
+enable_diagnostics            = false
+log_analytics_workspace_id    = null
+
+tags = {
+  Environment = "Demo"
+  ManagedBy   = "Terraform"
+}
+
+role_assignments = {}
