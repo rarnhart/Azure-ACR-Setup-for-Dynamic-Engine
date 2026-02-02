@@ -1,4 +1,4 @@
-# Azure Container Registry - Quick Setup for Demos
+# Azure Container Registry for Dynamic Engine Quick Setup
 
 Simplified Terraform package for standing up Azure Container Registry for demonstration purposes.
 
