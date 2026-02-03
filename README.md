@@ -88,7 +88,7 @@ View your registry contents without Docker:
 ## Credentials File
 
 After deployment, `acr-credentials.txt` contains:
-- Registry URL (e.g., `dedeeacr.azurecr.io`)
+- Registry URL (e.g., `myacr.azurecr.io`)
 - Username
 - Password (two passwords for rotation)
 - Docker commands (login, push, pull)
@@ -100,11 +100,11 @@ Share this file with your team.
 
 ```bash
 # Using password-stdin (recommended)
-echo "<password>" | docker login dedeeacr.azurecr.io -u dedeeacr --password-stdin
+echo "<password>" | docker login myacr.azurecr.io -u myacr --password-stdin
 
 # Or get password dynamically
-az acr credential show --name dedeeacr --query "passwords[0].value" -o tsv | \
-  docker login dedeeacr.azurecr.io -u dedeeacr --password-stdin
+az acr credential show --name myacr --query "passwords[0].value" -o tsv | \
+  docker login myacr.azurecr.io -u myacr --password-stdin
 ```
 
 ## Registry Naming
@@ -112,16 +112,16 @@ az acr credential show --name dedeeacr --query "passwords[0].value" -o tsv | \
 - Must be globally unique across all Azure
 - 5-50 characters
 - Alphanumeric only (no hyphens, underscores, or special characters)
-- Examples: `mycompanyacr`, `dedeeacr`, `acrdemo123`
+- Examples: `mycompanyacr`, `myacr`, `acrdemo123`
 
 ## Repository Organization
 
 Repositories support hierarchical paths:
 
 ```
-dedeeacr.azurecr.io/myapp:latest              # Flat
-dedeeacr.azurecr.io/frontend/web:v1.0         # Two levels
-dedeeacr.azurecr.io/company/team/service:tag  # Three levels
+myacr.azurecr.io/myapp:latest              # Flat
+myacr.azurecr.io/frontend/web:v1.0         # Two levels
+myacr.azurecr.io/company/team/service:tag  # Three levels
 ```
 
 Repositories are created automatically on first push.
